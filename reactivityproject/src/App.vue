@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="I Lke Oreos"/>
+    <hi>{{ product }}</hi>
   </div>
 </template>
 
@@ -11,12 +10,17 @@ import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+  },
+  data() { 
+    return()
+          product: 'Lightsaber',
+      
+      
 }
 </script>
 
 <style>
 #app {
+  font-size: 1rem;
 }
 </style>
