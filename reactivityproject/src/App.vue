@@ -12,10 +12,10 @@ export default {
   components: {
   },
   data() { 
-    return()
-          product: 'Lightsaber',
-      
-      
+    return{
+       product: 'lightsaber',
+    }
+  }
 }
 </script>
 
