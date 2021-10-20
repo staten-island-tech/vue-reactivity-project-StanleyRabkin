@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
@@ -13,7 +12,7 @@ export default {
   },
   data() { 
     return{
-       product: 'lightsaber',
+       product: 'Lightsaber',
     }
   }
 }
@@ -23,4 +22,4 @@ export default {
 #app {
   font-size: 1rem;
 }
-</style>
+</style> 
