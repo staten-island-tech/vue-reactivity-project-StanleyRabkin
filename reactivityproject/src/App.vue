@@ -19,19 +19,39 @@ export default {
   data() { 
     return{
        product: 'Lightsaber',
-       selectedVariant: 1,
+       selectedVariant: 0,
        img: require("./assets/blue-lightsaber.jpg"),
-       variants: {
+       variants: [
          {
          variantID:1,
          variantColor: "blue",
          variantImage: require("./assets/blue-lightsaber.jpg"),
-         }
+         },
+          {
+         variantID:2,
+         variantColor: "red",
+         variantImage: require("./assets/red-lightsaber.jpg"),
+         },
+          {
+         variantID:3,
+         variantColor: "green",
+         variantImage: require("./assets/green-lightsaber.jpg"),
+         },
+          {
+         variantID:4,
+         variantColor: "white",
+         variantImage: require("./assets/white-lightsaber.jpg"),
+         },
+          {
+         variantID:5,
+         variantColor: "purple",
+         variantImage: require("./assets/purple-lightsaber.jpg"),
+         },
+        ]
        }
        
     }
   }
-}
 </script>
 
 <style>
