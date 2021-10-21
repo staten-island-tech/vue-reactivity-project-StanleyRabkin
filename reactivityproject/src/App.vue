@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <hi>{{ product }}</hi>
+    <div class="product-info">
+      <hi>{{ product }}</hi>
+    </div>
+    <div class="product-image">
+      <img v-bind:src="img"/>
+    </div>
+    
   </div>
 </template>
 
@@ -13,6 +19,16 @@ export default {
   data() { 
     return{
        product: 'Lightsaber',
+       selectedVariant: 1,
+       img: require("./assets/blue-lightsaber.jpg"),
+       variants: {
+         {
+         variantID:1,
+         variantColor: "blue",
+         variantImage: require("./assets/blue-lightsaber.jpg"),
+         }
+       }
+       
     }
   }
 }
