@@ -6,7 +6,9 @@
     <div class="product-image">
       <img v-bind:src="img"/>
     </div>
-    
+    <div v-for="variant in varients" :key="variant.variantID">
+      <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+    </div>
   </div>
 </template>
 
@@ -42,14 +44,20 @@ export default {
          variantColor: "white",
          variantImage: require("./assets/white-lightsaber.jpg"),
          },
-          {
-         variantID:5,
-         variantColor: "purple",
-         variantImage: require("./assets/purple-lightsaber.jpg"),
+         {
+          variantID:5,
+         variantColor: "cyan",
+         variantImage: require("./assets/cyan-lightsaber.jpg"),
          },
         ]
        }
        
+    },
+    methods: {
+      updateProduct: function (variantImage) {
+        this.image = variantImage
+      }
+
     }
   }
 </script>
