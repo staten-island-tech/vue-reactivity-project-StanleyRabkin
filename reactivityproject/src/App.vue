@@ -7,7 +7,7 @@
       <img v-bind:src="img"/>
     </div>
     <div v-for="variant in varients" :key="variant.variantID">
-      <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+      <p>{{ variant.variantColor }}</p>
     </div>
   </div>
 </template>
@@ -66,4 +66,4 @@ export default {
 #app {
   font-size: 1rem;
 }
-</style> 
+</style>   
