@@ -4,10 +4,14 @@
       <hi>{{ product }}</hi>
     </div>
     <div class="product-image">
-      <img v-bind:src="img"/>
+      <img class="lightsaber-img" v-bind:src="img"/>
     </div>
-    <div v-for="variant in varients" :key="variant.variantID">
-      <p>{{ variant.variantColor }}</p>
+    <div v-for="variant in variants" :key="variant.variantID">
+      <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+    </div>
+    <button v-on:click="addToCart">Add to Cart</button>
+    <div class="cart">
+      <p>Cart({{cart}})</p>
     </div>
   </div>
 </template>
@@ -49,11 +53,14 @@ export default {
          variantColor: "cyan",
          variantImage: require("./assets/cyan-lightsaber.jpg"),
          },
-        ]
+        ],
+        cart: 0
        }
-       
     },
     methods: {
+      addToCart: function () {
+        this.cart += 1;
+      },
       updateProduct: function (variantImage) {
         this.image = variantImage
       }
@@ -65,5 +72,8 @@ export default {
 <style>
 #app {
   font-size: 1rem;
+}
+.lightsaber-img{
+  width: 30rem;
 }
 </style>   
