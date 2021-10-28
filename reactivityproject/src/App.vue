@@ -72,6 +72,8 @@ export default {
 <style>
 #app {
   font-size: 1rem;
+  background-color: black;
+  color: aliceblue;
 }
 .lightsaber-img{
   width: 30rem;
