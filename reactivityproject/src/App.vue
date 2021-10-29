@@ -25,9 +25,13 @@ export default {
   data() { 
     return{
        product: 'Lightsaber',
-       selectedVariant: 0,
-       img: require("./assets/blue-lightsaber.jpg"),
-       variants: [
+      //  selectedVariant: 0,
+        // currantImage: require("./assets/blue-lightsaber.jpg"),
+        currentImage: '',
+        lightsaberImages: {
+          
+        }
+        variants: [
          {
          variantID:1,
          variantColor: "blue",
@@ -58,14 +62,15 @@ export default {
        }
     },
     methods: {
-      addToCart: function () {
+      addToCart() {
         this.cart += 1;
       },
-      updateProduct: function (variantImage) {
-        this.image = variantImage;
+      updateProduct(currentImage) {
+        this.currentImage = this.variantImage
       }
 
     },
+    
   }
 </script>
 
