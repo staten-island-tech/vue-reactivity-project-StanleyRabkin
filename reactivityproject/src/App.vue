@@ -6,9 +6,9 @@
     <div class="product-image">
       <img class="lightsaber-img" v-bind:src="img"/>
     </div>
-    <div v-for="variant in variants" :key="variant.variantID">
-      <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
-    </div>
+    <button class="color-button" v-for="variant in variants" :key="variant.variantID">
+      <p @click="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+    </button>
     <button v-on:click="addToCart">Add to Cart</button>
     <div class="cart">
       <p>Cart({{cart}})</p>
@@ -62,10 +62,10 @@ export default {
         this.cart += 1;
       },
       updateProduct: function (variantImage) {
-        this.image = variantImage
+        this.image = variantImage;
       }
 
-    }
+    },
   }
 </script>
 
