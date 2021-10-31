@@ -14,8 +14,10 @@
         {{ lightsaberColor }}
       
     </button>
-    <button v-on:click="addToCart">Add to Cart</button>
+    
     <div class="cart">
+      <button class="addToCartButton" v-on:click="addToCart">Add to Cart</button>
+      <button class="removeFromCartButton" v-on:click="removeFromCart">Remove From Cart</button>
       <p>Cart({{ cart }})</p>
     </div>
   </div>
@@ -46,6 +48,11 @@ export default {
       addToCart() {
         this.cart += 1;
       },
+      removeFromCart() {
+        if (this.cart > 0) {
+        this.cart -= 1;
+        }
+      },
       updateProduct(lightsaber) {
         this.currentImage = this.lightsaberImages[lightsaber];
       },
@@ -56,16 +63,34 @@ export default {
 </script>
 
 <style>
-#app {
+body {
   font-size: 2rem;
   background-color: black;
   color: aliceblue;
-}
-.header {
-  font-size: 3rem;
   text-align: center;
 }
+.product-info {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .lightsaber-image {
-  width: 60vh;
+  width: 50vh;
+  border: .1rem solid white;
+}
+
+.color-button {
+  margin: .5rem;
+  font-size: 1rem;
+}
+
+.addToCartButton {
+  margin: 1rem;
+}
+
+.removeFromCartButton {
+  margin: 1rem;
 }
 </style>
