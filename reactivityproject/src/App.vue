@@ -1,17 +1,22 @@
 <template>
   <div id="app">
     <div class="product-info">
-      <hi>{{ product }}</hi>
+      <hi class="header">{{ product }}</hi>
     </div>
     <div class="product-image">
-      <img class="lightsaber-img" v-bind:src="img"/>
+      <img class="lightsaber-image" v-bind:src="currentImage" />
     </div>
-    <button class="color-button" v-for="variant in variants" :key="variant.variantID">
-      <p @click="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+    <button
+      class="color-button"
+      v-for="lightsaberColor in lightsaberColors"
+      :key="lightsaberColor"
+       @click="updateProduct(lightsaberColor)">
+        {{ lightsaberColor }}
+      
     </button>
     <button v-on:click="addToCart">Add to Cart</button>
     <div class="cart">
-      <p>Cart({{cart}})</p>
+      <p>Cart({{ cart }})</p>
     </div>
   </div>
 </template>
@@ -22,65 +27,45 @@ export default {
   name: 'App',
   components: {
   },
-  data() { 
+  data() {
     return{
-       product: 'Lightsaber',
-      //  selectedVariant: 0,
-        // currantImage: require("./assets/blue-lightsaber.jpg"),
-        currentImage: '',
+        product: 'Lightsaber',
+        lightsaberColors: ['Blue', 'Red', 'White', 'Cyan', 'Green'],
+        currentImage: require("./assets/blue-lightsaber.jpg"),
         lightsaberImages: {
-          
-        }
-        variants: [
-         {
-         variantID:1,
-         variantColor: "blue",
-         variantImage: require("./assets/blue-lightsaber.jpg"),
-         },
-          {
-         variantID:2,
-         variantColor: "red",
-         variantImage: require("./assets/red-lightsaber.jpg"),
-         },
-          {
-         variantID:3,
-         variantColor: "green",
-         variantImage: require("./assets/green-lightsaber.jpg"),
-         },
-          {
-         variantID:4,
-         variantColor: "white",
-         variantImage: require("./assets/white-lightsaber.jpg"),
-         },
-         {
-          variantID:5,
-         variantColor: "cyan",
-         variantImage: require("./assets/cyan-lightsaber.jpg"),
-         },
-        ],
-        cart: 0
+          Blue: require("./assets/blue-lightsaber.jpg"),
+          Red: require("./assets/red-lightsaber.jpg"),
+          White: require("./assets/white-lightsaber.jpg"),
+          Cyan: require("./assets/cyan-lightsaber.jpg"),
+          Green: require("./assets/green-lightsaber.jpg"),
+        },
+        cart: 0,
        }
     },
     methods: {
       addToCart() {
         this.cart += 1;
       },
-      updateProduct(currentImage) {
-        this.currentImage = this.variantImage
-      }
+      updateProduct(lightsaber) {
+        this.currentImage = this.lightsaberImages[lightsaber];
+      },
 
     },
-    
+
   }
 </script>
 
 <style>
 #app {
-  font-size: 1rem;
+  font-size: 2rem;
   background-color: black;
   color: aliceblue;
 }
-.lightsaber-img{
-  width: 30rem;
+.header {
+  font-size: 3rem;
+  text-align: center;
 }
-</style>   
+.lightsaber-image {
+  width: 60vh;
+}
+</style>
